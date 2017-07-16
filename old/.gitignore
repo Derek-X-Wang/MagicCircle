@@ -1,0 +1,8 @@
+api.spec
+.venv/
+node_modules/
+build/
+dist/
+pycalcdist/
+*.pyc
+__pycache__/

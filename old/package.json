@@ -1,0 +1,29 @@
+{
+  "name": "pretty-calculator",
+  "version": "1.0.0",
+  "description": "A minimal Electron and Python - based calculator ",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/fyears/electron-python-example",
+  "keywords": [
+    "Electron",
+    "Python",
+    "zerorpc",
+    "demo"
+  ],
+  "author": "fyears",
+  "license": "MIT",
+  "dependencies": {
+    "vue": "^2.4.1",
+    "vue-router": "^2.7.0",
+    "vuex": "^2.3.1",
+    "zerorpc": "fyears/zerorpc-node"
+  },
+  "devDependencies": {
+    "electron": "^1.6.2",
+    "electron-packager": "^8.5.1",
+    "electron-rebuild": "^1.5.11"
+  }
+}
