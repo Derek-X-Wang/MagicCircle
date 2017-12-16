@@ -11,14 +11,14 @@
 
       <div class="right-side">
         <div class="doc">
-          <div class="title">Getting Started!</div>
+          <div class="title">Magic Wormhole</div>
           <p>
-            electron-vue comes packed with detailed documentation that covers everything from
-            internal configurations, using the project structure, building your application,
-            and so much more.
+            Enter the code to receive your files 
           </p>
-          <input v-on:input="getResult"></input>
+          <input v-model="code"></input>
           <div>{{result}}</div>
+          <button @click="receive">receive</button>
+          <button @click="send">send</button>
         </div>
       </div>
     </main>
@@ -34,17 +34,28 @@
     data() {
       return {
         formula: "1 + 2.0 * 3.1 / (4 ^ 5.6)",
-        result: "???"
+        result: "???",
+        code: "unknown",
       };
     },
     methods: {
       open (link) {
         this.$electron.shell.openExternal(link)
       },
-      getResult(event) {
-        console.log(event.target.value);
+      receive() {
+        console.log(this.code);
         let that = this;
-        this.$python.invoke("calc", event.target.value, (error, res) => {
+        this.$python.invoke("receive", this.code, (error, res) => {
+          if(error) {
+            console.error(error);
+          } else {
+            that.result = res;
+          }
+        });
+      },
+      send() {
+        let that = this;
+        this.$python.invoke("send", "/Users/derekxinzhewang/Desktop/shell.c", (error, res) => {
           if(error) {
             console.error(error);
           } else {
@@ -52,7 +63,7 @@
           }
         });
       }
-    }
+    },
   }
 </script>
 

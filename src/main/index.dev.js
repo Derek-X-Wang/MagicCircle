@@ -7,6 +7,20 @@
 
 /* eslint-disable */
 import { createPyProc, exitPyProc } from './pythread';
+// var menubar = require('menubar')
+
+// var mb = menubar()
+
+// mb.on('ready', function ready () {
+//   console.log('app is ready')
+//   require('./index')
+//   // launch zeromq server for python
+//   createPyProc();
+// })
+
+// mb.on('after-close', function quit () {
+//   exitPyProc();
+// })
 
 // Set environment for development
 process.env.NODE_ENV = 'development'

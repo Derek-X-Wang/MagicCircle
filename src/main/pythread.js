@@ -5,8 +5,8 @@ const path = require('path')
  * py process
  *************************************************************/
 
-const PY_DIST_FOLDER = '../../old/pycalcdist'
-const PY_FOLDER = '../../old/pycalc'
+const PY_DIST_FOLDER = '../../python/magic_wormhole_dist'
+const PY_FOLDER = '../../python/magic_wormhole'
 const PY_MODULE = 'api' // without .py suffix
 
 let pyProc = null
@@ -38,7 +38,7 @@ export const createPyProc = () => {
 
   if (guessPackaged()) {
     pyProc = require('child_process').execFile(script, [port])
-    console.log("execFile")
+    console.log("exec_file")
   } else {
     pyProc = require('child_process').spawn('python', [script, port])
     pyProc.stderr.on('data', function(data) {
